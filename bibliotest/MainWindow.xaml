@@ -1,0 +1,87 @@
+﻿<Window x:Class="bibliotest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bibliotest"
+        mc:Ignorable="d"
+        Title="Bibliotest" Height="524" Width="1000" MinHeight="450" MinWidth="800" MaxHeight="550" MaxWidth="1000">
+    <Grid Background="#007ACC">
+        <Image Source="124.jpg" HorizontalAlignment="center" VerticalAlignment="Top" Width="100" Height="100"/>
+        <TabControl Background="Transparent">
+            <TabItem Header="Пользователи" Background="Transparent">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListView Name="urs" Grid.Row="0" Background="#FFFFFF" Margin="72,39,34,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Family}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" 
+                                VerticalAlignment="Center">
+                        <Label Content="Поиск" Foreground="#FFFFFF"/>
+                        <TextBox Name="userIdTextBox" Width="100"/>
+                        <Button Content="Найти" Background="#0099CC" Foreground="#FFFFFF" 
+                                Click="FindUserButton_Click" Width="75" Margin="10,0"/>
+                        <Label Content="Имя:" Foreground="#FFFFFF"/>
+                        <TextBox Name="nameTextBox" Width="100"/>
+                        <Label Content="Фамилия:" Foreground="#FFFFFF"/>
+                        <TextBox Name="familyTextBox" Width="100"/>
+                        <Button Content="Добавить" Background="#0099CC" Foreground="#FFFFFF" 
+                                Click="AddUserButton_Click" Width="75" Margin="10,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Книги" Background="Transparent">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListView Name="Books" Grid.Row="0" Background="#FFFFFF" Margin="53,31,31,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Path=Title}"/>
+                                <GridViewColumn Header="Автор" DisplayMemberBinding="{Binding Path=Author}"/>
+                                <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Path=Age}"/>
+                                <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding Path=Count}"/>
+                                <GridViewColumn Header="Взял" DisplayMemberBinding="{Binding Path=vydana}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" 
+                                VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Label Content="Поиск" Foreground="#FFFFFF"/>
+                            <TextBox Name="bookTitleTextBox" Width="30"/>
+                            <Button Content="Найти" Background="#0099CC" Foreground="#FFFFFF" 
+                                    Click="FindBookButton_Click" Width="40" Margin="10,0"/>
+                        </StackPanel>
+                        <CheckBox Content="Показывать только взятые" Background="Transparent" 
+                                  Foreground="#FFFFFF" Checked="CheckBox_Checked"/>
+                        <CheckBox Content="Показывать только в наличии" Background="Transparent" 
+                                  Foreground="#FFFFFF"/>
+                        <Label Content="Название:" Foreground="#FFFFFF"/>
+                        <TextBox Name="titleTextBox" Width="40"/>
+                        <Label Content="Автор:" Foreground="#FFFFFF"/>
+                        <TextBox Name="authorTextBox" Width="30"/>
+                        <Label Content="Количество:" Foreground="#FFFFFF"/>
+                        <TextBox Name="countTextBox" Width="30"/>
+                        <TextBox Name="arcTextBox" Width="54"/>
+                        <Button Content="Добавить" Background="#0099CC" Foreground="#FFFFFF" 
+                                Click="AddBookButton_Click" Width="58" Margin="10,0"/>
+                        <Button Content="Выдать" Background="#0099CC" Foreground="#FFFFFF" 
+                                Click="IssueBookButton_Click" Width="50" Margin="10,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
